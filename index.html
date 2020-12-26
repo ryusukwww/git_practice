@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PROFILE SITE</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/uikit.min.css" />
+        <script src="js/uikit.min.js"></script>
+        <script src="js/uikit-icons.min.js"></script>
+    </head>
+    <body>
+        <!--ナビゲーション-->
+        <nav class="uk-navbar-container uk-navbar" >
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav uk-margin-right">
+                    <li><a href="file:///Users/nakamuraryusuke/Documents/dev/portfolio/index.html">自己紹介</a></li>
+                    <li><a href="file:///Users/nakamuraryusuke/Documents/dev/portfolio/index2.html">実績</a></li>
+                    <li><a id="btn">ポートフォリオ</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!--ボタン-->
+        <div class="uk-container uk-container-large uk-margin">
+        <p uk-margin>
+            <button class="uk-button uk-button-primary uk-align-center">クリックで別の文字コンテンツが出てくる</button>
+        </p>
+        </div>
+        <!--アーティクル-->
+        <div id="article" class="uk-container uk-container-large uk-margin">
+            <article id="sampleText"class="uk-article">
+                <div class="uk-grid-small uk-child-width-auto" uk-grid>
+                    <div>
+                        <a class="uk-button uk-button-text" href="#">Read more</a>
+                    </div>
+                    <div>
+                        <a class="uk-button uk-button-text" href="#">5 Comments</a>
+                    </div>
+                </div>
+            </article>
+        </div>        
+        </ul>
+        <hr>
+
+        <!--js-->
+        <script>
+            var texts = [
+                {
+                    "h1" : "自己紹介",
+                    "date" : "2020.12.23",
+                    "color" : "color : red ;",
+                    "text" : "最近ハマっているものは長野です。",
+
+                },
+                {
+                    "h1" : "職務経歴",
+                    "date" : "2020.12.24",
+                    "color" : "bule",
+                    "text" : "フロントエンドエンジニアを目指しています"
+                },
+            ];
+
+            var sampleText;
+            var text;
+
+            //ページにh1要素を追加して、赤文字に装飾する
+            sampleText = document.createElement('h1');
+            sampleText.setAttribute('style',texts[0].color);
+            sampleText.innerHTML = texts[0].h1;
+            
+            //ボタンをクリックした際に、文字が表示される
+            document.getElementById('btn').addEventListener('click' ,function(){
+                document.getElementById('article').appendChild(sampleText);
+            });
+
+        </script>
+    </body>
+</html>
