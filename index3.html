@@ -14,18 +14,18 @@
             <nav class="uk-navbar-container uk-navbar" >
                 <div class="uk-navbar-right">
                     <ul class="uk-navbar-nav uk-margin-right    ">
-                        <li><a href="file:///Users/nakamuraryusuke/Documents/dev/portfolio/git_practice/index.html">自己紹介</a></li>
-                        <li><a href="file:///Users/nakamuraryusuke/Documents/dev/portfolio/git_practice/index2.html">実績</a></li>
-                        <li><a v-on:click="showBtn">ポートフォリオ</a></li>
+                        <li><a v-on:click="showContents">自己紹介</a></li>
+                        <li><a v-on:click="showContents">職務経歴</a></li>
+                        <li><a v-on:click="showContents">ポートフォリオ</a></li>
                     </ul>
                 </div>
             </nav>
-            <!--アーティクル-->
+            <!--showArea1 : 自己紹介-->
             <div class="uk-container uk-container-large uk-margin">
-                <article v-if="show" class="uk-article">
-                    <h1 class="uk-article-title"><a class="uk-link-reset" href="">PORTFORIO</a></h1>
-                    <p class="uk-text-lead">本文1</p>
-                    <p>本文2</p>
+                <article v-if="showArea " class="uk-article">
+                    <h2 class="uk-article-title"><a class="uk-link-reset" href="">中村颯介</a></h2>
+                    <p class="uk-text-lead">NAKAMURA RYUSUKE</p>
+                    <p>27歳 Webデザイナーをしています。将来はWebディレクターとしてキャリアを積みたいと考えているので、まずはモダンなフロントエンドエンジニアとしての現場経験を積みたいと考えています。何卒、よろしくお願いいたします。</p>
                     <div class="uk-grid-small uk-child-width-auto" uk-grid>
                         <div>
                             <a class="uk-button uk-button-text" href="#">もっと読む</a>
@@ -34,21 +34,94 @@
                             <a class="uk-button uk-button-text" href="#">5コメント</a>
                         </div>
                     </div>
-                
                 </article>
             </div> 
-        </div>       
+            
+            <!--showArea2 : 職務経歴-->
+            <div v-if="showArea2" class="uk-container uk-container-large uk-margin">
+                <h2 class="uk-article-title"><a class="uk-link-reset" href="">職務経歴</a></h2>
+                <ul uk-accordion="multiple: true">
+                    <li class="uk-open">
+                        <a class="uk-accordion-title" href="#">Webデザイナー</a>
+                        <div class="uk-accordion-content">
+                            <p>Webデザイナーとしての経験をここに書く</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="uk-accordion-title" href="#">Web企画</a>
+                        <div class="uk-accordion-content">
+                            <p>ならじかんの企画、コーディング経験をここに書く</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="uk-accordion-title" href="#">WordPressテーマ開発</a>
+                        <div class="uk-accordion-content">
+                            <p>WordPressテーマをUIKITで作成した記録をここに書く</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        
+            <!--showArea3 : ポートフォリオ-->
+            <div v-if="showArea3" class="uk-container uk-container-large uk-margin">
+                <h2 class="uk-article-title"><a class="uk-link-reset" href="">ポートフォリオ</a></h2>
+                <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                    <div class="uk-card-media-left uk-cover-container">
+                        <img src="images/light.jpg" alt="" uk-cover>
+                        <canvas width="600" height="400"></canvas>
+                    </div>
+                    <div>
+                        <div class="uk-card-body">
+                            <h3 class="uk-card-title">Media Left</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                    <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
+                        <img src="images/light.jpg" alt="" uk-cover>
+                        <canvas width="600" height="400"></canvas>
+                    </div>
+                    <div>
+                        <div class="uk-card-body">
+                            <h3 class="uk-card-title">Media Right</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
         <script>
             var app = new Vue({
                 el : '#app', 
                 data : {
-                    show : true
+                    btnKey : '' , 
+                    showArea : false,
+                    showArea2 : false,
+                    showArea3 : false
                 },
                 methods:{
-                    showBtn : function(){
-                        this.show == true ? this.show = false : this.show = true
-                    }
+                    showContents : function(event){
+                        this.btnKey = event.target.innerText;
+                        if(this.btnKey === "自己紹介"){
+                            this.showArea  = true ;
+                            this.showArea2 = false ; 
+                            this.showArea3 = false ; 
+                        }else if(this.btnKey === "職務経歴"){
+                            this.showArea = false ;
+                            this.showArea2 =  true ; 
+                            this.showArea3 = false ; 
+                        }else if(this.btnKey === "ポートフォリオ"){
+                            this.showArea = false ;
+                            this.showArea2 = false ; 
+                            this.showArea3 = true ; 
+                        }else{
+                            //ボタン内がその他であれば、何も返さない
+                        }
+                    },
                 },
             });
         </script>
