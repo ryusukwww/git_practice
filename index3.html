@@ -10,16 +10,50 @@
     </head>
     <body>
         <div id="app">
-            <!--ナビゲーション-->
-            <nav class="uk-navbar-container uk-navbar" >
-                <div class="uk-navbar-right">
-                    <ul class="uk-navbar-nav uk-margin-right    ">
-                        <li><a v-on:click="showContents">自己紹介</a></li>
-                        <li><a v-on:click="showContents">職務経歴</a></li>
-                        <li><a v-on:click="showContents">ポートフォリオ</a></li>
+            <!--ナビゲーションPC-->
+            <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+                <nav class="uk-navbar-container uk-navbar uk-visible@m" >
+                    <div class="uk-navbar-left">
+                        <ul class="uk-navbar-nav uk-margin-right">
+                            <li><a href="#">rykw Portfolio</a></li>
+                        </ul>
+                    </div>
+                    <div class="uk-navbar-right">
+                        <ul class="uk-navbar-nav uk-margin-right">
+                            <li><a v-on:click="showContents">PROFILE</a></li>
+                            <li><a v-on:click="showContents">WORK</a></li>
+                            <li><a v-on:click="showContents">PORTFOLIO</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <!--ナビゲーションSP-->
+            <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+                <nav class="uk-navbar-container uk-navbar uk-hidden@m" >
+                    <div class="uk-navbar-left">
+                        <ul class="uk-navbar-nav uk-margin-right">
+                            <li><a href="#">rykw Portfolio</a></li>
+                        </ul>
+                    </div>
+                    <div class="uk-navbar-right">
+                        <ul class="uk-navbar-nav uk-margin-right uk-navbar-toggle" uk-navbar-toggle-icon uk-toggle="target: #offcanvas-nav">
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <!--オフキャンバス-->
+            <div id="offcanvas-nav" uk-offcanvas="flip: true">
+                <div class="uk-offcanvas-bar">
+                    <ul class="uk-nav uk-nav-default">
+                        <li class="uk-nav-header">MENU</li>
+                        <li><a v-on:click="showContents"><span class="uk-margin-small-right"></span>PROFILE</a></li>
+                        <li><a v-on:click="showContents"><span class="uk-margin-small-right"></span>WORK</a></li>
+                        <li><a v-on:click="showContents"><span class="uk-margin-small-right"></span>PORTFOLIO</a></li>
                     </ul>
+            
                 </div>
-            </nav>
+            </div>
+
             <!--showArea1 : 自己紹介-->
             <div class="uk-container uk-container-large uk-margin">
                 <article v-if="showArea " class="uk-article">
@@ -106,15 +140,15 @@
                 methods:{
                     showContents : function(event){
                         this.btnKey = event.target.innerText;
-                        if(this.btnKey === "自己紹介"){
+                        if(this.btnKey === "PROFILE"){
                             this.showArea  = true ;
                             this.showArea2 = false ; 
                             this.showArea3 = false ; 
-                        }else if(this.btnKey === "職務経歴"){
+                        }else if(this.btnKey === "WORK"){
                             this.showArea = false ;
                             this.showArea2 =  true ; 
                             this.showArea3 = false ; 
-                        }else if(this.btnKey === "ポートフォリオ"){
+                        }else if(this.btnKey === "PORTFOLIO"){
                             this.showArea = false ;
                             this.showArea2 = false ; 
                             this.showArea3 = true ; 
