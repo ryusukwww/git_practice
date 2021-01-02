@@ -15,7 +15,7 @@
                 <nav class="uk-navbar-container uk-navbar uk-visible@m" >
                     <div class="uk-navbar-left">
                         <ul class="uk-navbar-nav uk-margin-right">
-                            <li><a href="#">rykw Portfolio</a></li>
+                            <li><a href="#">NAKAMURA RYUSUKE</a></li>
                         </ul>
                     </div>
                     <div class="uk-navbar-right">
@@ -23,6 +23,7 @@
                             <li><a v-on:click="showContents">PROFILE</a></li>
                             <li><a v-on:click="showContents">WORK</a></li>
                             <li><a v-on:click="showContents">PORTFOLIO</a></li>
+                            <li><a v-on:click="showContents">LOG</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -49,6 +50,7 @@
                         <li><a v-on:click="showContents"><span class="uk-margin-small-right"></span>PROFILE</a></li>
                         <li><a v-on:click="showContents"><span class="uk-margin-small-right"></span>WORK</a></li>
                         <li><a v-on:click="showContents"><span class="uk-margin-small-right"></span>PORTFOLIO</a></li>
+                        <li><a v-on:click="showContents"><span class="uk-margin-small-right"></span>LOG</a></li>
                     </ul>
             
                 </div>
@@ -57,7 +59,7 @@
             <!--showArea1 : 自己紹介-->
             <div class="uk-container uk-container-large uk-margin">
                 <article v-if="showArea " class="uk-article">
-                    <h2 class="uk-article-title"><a class="uk-link-reset" href="">中村颯介</a></h2>
+                    <h1 class="uk-heading-small">中村颯介</h1>
                     <p class="uk-text-lead">NAKAMURA RYUSUKE</p>
                     <p>27歳 Webデザイナーをしています。将来はWebディレクターとしてキャリアを積みたいと考えているので、まずはモダンなフロントエンドエンジニアとしての現場経験を積みたいと考えています。何卒、よろしくお願いいたします。</p>
                     <div class="uk-grid-small uk-child-width-auto" uk-grid>
@@ -73,7 +75,7 @@
             
             <!--showArea2 : 職務経歴-->
             <div v-if="showArea2" class="uk-container uk-container-large uk-margin">
-                <h2 class="uk-article-title"><a class="uk-link-reset" href="">職務経歴</a></h2>
+                <h1 class="uk-heading-small">職務経歴</h1>
                 <ul uk-accordion="multiple: true">
                     <li class="uk-open">
                         <a class="uk-accordion-title" href="#">Webデザイナー</a>
@@ -98,7 +100,7 @@
         
             <!--showArea3 : ポートフォリオ-->
             <div v-if="showArea3" class="uk-container uk-container-large uk-margin">
-                <h2 class="uk-article-title"><a class="uk-link-reset" href="">ポートフォリオ</a></h2>
+                <h2 class="uk-heading-small">ポートフォリオ</h2>
                 <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
                     <div class="uk-card-media-left uk-cover-container">
                         <img src="images/light.jpg" alt="" uk-cover>
@@ -125,39 +127,33 @@
                     </div>
                 </div>
             </div>
-        </div> 
-        
+            <!--showArea4 : LOG-->
+            <div v-if="showArea4" class="uk-container uk-container-large uk-margin">
+                <form>
+                    <fieldset class="uk-fieldset">
+                        <h2 class="uk-heading-small">LOG</h2>
+                        <div class="uk-margin">
+                            <input id="logHeader" class="uk-input" type="text" placeholder="タイトルを入力" v-model="addLogTitle">
+                        </div>
+                        <div class="uk-margin">
+                            <textarea id="logText" class="uk-textarea" rows="5" placeholder="テキストを入れてください" v-model="addLogContent"></textarea>
+                        </div>
+                    </fieldset>
+                </form>
+                <div class="uk-margin">
+                    <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" @click="addLog">LOGを追加する</button>
+                </div>
+                <!--ログ追加セクション-->
+                <template v-for="log in logs">
+                    <h2>{{log.title}}</h2>
+                    <p>{{log.content}}</p>
+                    <p>AUTOR : NAKAMURA RYUSUKE</p>
+                    <>
+                    <hr>
+            </template>
+            </div>
+        </div>            
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-        <script>
-            var app = new Vue({
-                el : '#app', 
-                data : {
-                    btnKey : '' , 
-                    showArea : false,
-                    showArea2 : false,
-                    showArea3 : false
-                },
-                methods:{
-                    showContents : function(event){
-                        this.btnKey = event.target.innerText;
-                        if(this.btnKey === "PROFILE"){
-                            this.showArea  = true ;
-                            this.showArea2 = false ; 
-                            this.showArea3 = false ; 
-                        }else if(this.btnKey === "WORK"){
-                            this.showArea = false ;
-                            this.showArea2 =  true ; 
-                            this.showArea3 = false ; 
-                        }else if(this.btnKey === "PORTFOLIO"){
-                            this.showArea = false ;
-                            this.showArea2 = false ; 
-                            this.showArea3 = true ; 
-                        }else{
-                            //ボタン内がその他であれば、何も返さない
-                        }
-                    },
-                },
-            });
-        </script>
+        <script src="main.js"></script>
     </body>
 </html>
