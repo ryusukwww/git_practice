@@ -1,0 +1,32 @@
+.uk-card {
+    position: relative;
+    z-index: 1; /* 必要であればリンク要素の重なりのベース順序指定 */
+}
+
+.uk-card:hover {
+    filter:alpha(opacity=70);/* IE 6,7*/
+    -ms-filter: "alpha(opacity=70)";/* IE 8,9 */
+    -moz-opacity:0.9;/* FF , Netscape */
+    -khtml-opacity: 0.9;/* Safari 1.x */
+    opacity:0.9;
+    zoom:1;/*IE*/
+}
+.uk-card a{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* 必要であればリンク要素の重なりのベース順序指定 */
+}
+
+.uk-container-expand{
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.uk-height-large {
+    height: 800px;
+}
