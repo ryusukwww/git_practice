@@ -2,14 +2,14 @@ var app = new Vue({
     el : '#app', 
     data : {
         btnKey : '' , 
-        showArea : false,
+        showArea : true,
         showArea2 : false,
         showArea3 : false,
         showArea4 : false,
-        Header : '',
-        Text : '',
-        showLogHeader: '',
-        showLogText: '',
+        logs : [
+        ],
+        addLogTitle : '',
+        addLogContent : '',
         },
     methods:{
         showContents : function(event){ //見出しクリックで、ページを切り替える(表示するコンテンツを変更するメソッド)
@@ -38,10 +38,14 @@ var app = new Vue({
                 //ボタン内がその他であれば、何も返さない
             }
         },
-        showLog : function(){ // LOGページでLOGを追加するためのメソッド
-            this.showLogHeader = this.Header; 
-            this.showLogText = this.Text; 
-            alert('タイトルは"' + this.showLogHeader + '"、' + '本文は"'+ this.showLogText + '"でよろしいでしょうか。');
-        },
+        addLog : function(){ //Logを追加した際に、logプロパティにコンテンツを追加するメソッド
+                if(confirm('タイトルは"' + this.addLogTitle + '"、' + '本文は"'+ this.addLogContent + '"でよろしいでしょうか。')){
+                    this.logs.push({title : this.addLogTitle , content : this.addLogContent});
+                }else{
+                    //何もしない
+                }
+                this.addLogTitle = '';
+                this.addLogContent = '';
+        }
     } //methodsの締め
 });// Vueの締め
