@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/uikit.min.css" />
+        <link rel="stylesheet" href="css/main.css" />
         <script src="js/uikit.min.js"></script>
         <script src="js/uikit-icons.min.js"></script>
     </head>
@@ -59,21 +60,11 @@
             </div>
 
             <!--showArea1 : PROFILE-->
-            <div class="uk-container uk-container-large uk-margin">
+            <div class="uk-container uk-container-expand">
                 <transition>
-                    <article v-if="showArea " class="uk-article">
-                    <h1 class="uk-heading-small">PROFILE</h1>
-                    <p class="uk-text-lead">中村颯介 NAKAMURA RYUSUKE</p>
-                    <p>27歳 Webデザイナーをしています。将来はWebディレクターとしてキャリアを積みたいと考えているので、まずはモダンなフロントエンドエンジニアとしての現場経験を積みたいと考えています。何卒、よろしくお願いいたします。</p>
-                    <div class="uk-grid-small uk-child-width-auto" uk-grid>
-                        <div>
-                            <a class="uk-button uk-button-text" href="#">もっと読む</a>
-                        </div>
-                        <div>
-                            <a class="uk-button uk-button-text" href="#">5コメント</a>
-                        </div>
-                    </div>
-                    </article>
+                    <div v-if="showArea" class="uk-height-large uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light" data-src="images/light.jpg" uk-img>
+                        <h1>NAKAMURA RYUSUKE</h1>
+                      </div>
                 </transition>
             </div> 
             
@@ -108,31 +99,54 @@
             <transition>
             <div v-if="showArea3" class="uk-container uk-container-large uk-margin">
                 <h2 class="uk-heading-small">PORTFOLIO</h2>
-                <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
-                    <div class="uk-card-media-left uk-cover-container">
-                        <img src="images/light.jpg" alt="" uk-cover>
-                        <canvas width="600" height="400"></canvas>
-                    </div>
-                    <div>
-                        <div class="uk-card-body">
-                            <h3 class="uk-card-title">Media Left</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                        <div class="uk-card-media-left uk-cover-container">
+                            <img src="images/light.jpg" alt="" uk-cover>
+                            <canvas width="600" height="400"></canvas>
+                        </div>
+                        <div>
+                            <div class="uk-card-body">
+                                <h3 class="uk-card-title">ポートフォリオ</h3>
+                                    <span class="uk-label">VUE.JS ★★☆☆☆</span>
+                                    <span class="uk-label">UIKIT ★★★★☆</span>
+                                    <span class="uk-label">HTML/CSS ★★★☆☆</span>
+                                <p>JavascriptとVue.jsの勉強のためにポートフォリオサイトを作成しました。Vue.jsの基本文法を学ぶためにVUEインスタンス、ディレクティブを活用して作成しました。また、バージョン管理をGITを活用して行いました。</p>
+                                <a href="http://naraclub.jp/homegame/narajikan-project/" class="uk-button uk-button-text"></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
-                    <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
-                        <img src="images/light.jpg" alt="" uk-cover>
-                        <canvas width="600" height="400"></canvas>
-                    </div>
-                    <div>
-                        <div class="uk-card-body">
-                            <h3 class="uk-card-title">Media Right</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                        <div class="uk-card-media-left uk-cover-container">
+                            <img src="images/narajikan.png" alt="" uk-cover>
+                            <canvas width="600" height="400"></canvas>
+                        </div>
+                        <div>
+                            <div class="uk-card-body">
+                                <h3 class="uk-card-title">#ならじかん</h3>
+                                    <span class="uk-label">WORDPRESS ★★★★☆</span>
+                                    <span class="uk-label">HTML/CSS ★★★☆☆</span>
+                                    <span class="uk-label">ILLUSTRATOR ★★★☆☆</span>
+                                <p>新型コロナウイルス禍でもファン、スークホルダーとコミュニケーションを行う事を目的にWeb企画を立案。奈良の企業様と共に、コロナ禍でもオンラインで体験できるコンテンツをコーティングいたしました。</p>
+                                <a href="http://naraclub.jp/homegame/narajikan-project/" class="uk-button uk-button-text"></a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                        <div class="uk-card-media-left uk-cover-container">
+                            <img src="images/ngo.jpeg" alt="" uk-cover>
+                            <canvas width="600" height="400"></canvas>
+                        </div>
+                        <div>
+                            <div class="uk-card-body" >
+                                <h3 class="uk-card-title">N.GO</h3>
+                                    <span class="uk-label">WORDPRESS ★★★★☆</span>
+                                    <span class="uk-label">HTML/CSS ★★★☆☆</span>
+                                    <span class="uk-label">ILLUSTRATOR ★★★☆☆</span>
+                                <p>5G時代の全く新しい観戦体験アプリケーション「N.GO」の特設サイトです。</p>
+                                <a href="http://naraclub.jp/homegame/n-go" class="uk-button uk-button-text"></a>
+                            </div>
+                        </div>
+                    </div>                
             </div>
             </transition>
             <!--showArea4 : LOG-->
