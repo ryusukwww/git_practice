@@ -15,7 +15,7 @@
                 <nav class="uk-navbar-container uk-navbar uk-visible@m" >
                     <div class="uk-navbar-left">
                         <ul class="uk-navbar-nav uk-margin-right">
-                            <li><a href="#">NAKAMURA RYUSUKE</a></li>
+                            <li><a href="file:///Users/nakamuraryusuke/Documents/dev/portfolio/git_practice/index3.html ">NAKAMURA RYUSUKE</a></li>
                         </ul>
                     </div>
                     <div class="uk-navbar-right">
@@ -33,7 +33,7 @@
                 <nav class="uk-navbar-container uk-navbar uk-hidden@m" >
                     <div class="uk-navbar-left">
                         <ul class="uk-navbar-nav uk-margin-right">
-                            <li><a href="#">rykw Portfolio</a></li>
+                            <li><a href="file:///Users/nakamuraryusuke/Documents/dev/portfolio/git_practice/index3.html">NAKAMURA RYUSUKE Portfolio</a></li>
                         </ul>
                     </div>
                     <div class="uk-navbar-right">
@@ -56,11 +56,12 @@
                 </div>
             </div>
 
-            <!--showArea1 : 自己紹介-->
+            <!--showArea1 : PROFILE-->
             <div class="uk-container uk-container-large uk-margin">
-                <article v-if="showArea " class="uk-article">
-                    <h1 class="uk-heading-small">中村颯介</h1>
-                    <p class="uk-text-lead">NAKAMURA RYUSUKE</p>
+                <transition>
+                    <article v-if="showArea " class="uk-article">
+                    <h1 class="uk-heading-small">PROFILE</h1>
+                    <p class="uk-text-lead">中村颯介 NAKAMURA RYUSUKE</p>
                     <p>27歳 Webデザイナーをしています。将来はWebディレクターとしてキャリアを積みたいと考えているので、まずはモダンなフロントエンドエンジニアとしての現場経験を積みたいと考えています。何卒、よろしくお願いいたします。</p>
                     <div class="uk-grid-small uk-child-width-auto" uk-grid>
                         <div>
@@ -70,12 +71,14 @@
                             <a class="uk-button uk-button-text" href="#">5コメント</a>
                         </div>
                     </div>
-                </article>
+                    </article>
+                </transition>
             </div> 
             
-            <!--showArea2 : 職務経歴-->
+            <!--showArea2 : WORK-->
+            <transition>
             <div v-if="showArea2" class="uk-container uk-container-large uk-margin">
-                <h1 class="uk-heading-small">職務経歴</h1>
+                <h1 class="uk-heading-small">WORK</h1>
                 <ul uk-accordion="multiple: true">
                     <li class="uk-open">
                         <a class="uk-accordion-title" href="#">Webデザイナー</a>
@@ -97,10 +100,12 @@
                     </li>
                 </ul>
             </div>
+            </transition>
         
-            <!--showArea3 : ポートフォリオ-->
+            <!--showArea3 : PORTFOLIO-->
+            <transition>
             <div v-if="showArea3" class="uk-container uk-container-large uk-margin">
-                <h2 class="uk-heading-small">ポートフォリオ</h2>
+                <h2 class="uk-heading-small">PORTFOLIO</h2>
                 <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
                     <div class="uk-card-media-left uk-cover-container">
                         <img src="images/light.jpg" alt="" uk-cover>
@@ -127,7 +132,9 @@
                     </div>
                 </div>
             </div>
+            </transition>
             <!--showArea4 : LOG-->
+            <transition>
             <div v-if="showArea4" class="uk-container uk-container-large uk-margin">
                 <form>
                     <fieldset class="uk-fieldset">
@@ -148,12 +155,27 @@
                     <h2>{{log.title}}</h2>
                     <p>{{log.content}}</p>
                     <p>AUTOR : NAKAMURA RYUSUKE</p>
-                    <>
                     <hr>
             </template>
             </div>
+            </transition>
         </div>            
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
         <script src="main.js"></script>
+        <style>
+			/* 現れている最中は、0.5秒 */
+			.v-enter-active {
+				transition: 0.4s;
+			}
+            /* 消えている最中は、0.1秒 */
+            .v-leave-active {
+                transition: 0.1s;
+            }
+			/* 現れる前の状態と、消えたときの状態は、透明度0で、下へ20移動*/
+			.v-enter, .v-leave-to {
+				opacity: 0;
+				transform: translateY(20px)
+			}
+		</style>
     </body>
 </html>
