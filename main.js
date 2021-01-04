@@ -6,6 +6,11 @@ var app = new Vue({
         showArea2 : false,
         showArea3 : false,
         showArea4 : false,
+        wordpress : true,
+        vuejs : true,
+        htmlcss : true,
+        uikit : true,
+        illustrator : true, 
         logs : [
         ],
         addLogTitle : '',
@@ -46,6 +51,28 @@ var app = new Vue({
                 }
                 this.addLogTitle = '';
                 this.addLogContent = '';
-        }
+            },
+        sortCategoryWordpress : function (){
+            this.wordpress = !this.wordpress ? true : false ; 
+        },
+        sortCategoryVuejs : function (){
+            this.vuejs = !this.vuejs ? true : false ; 
+        },
+        sortCategoryHtmlcss : function (){
+            this.htmlcss = !this.htmlcss ? true : false ; 
+        },
+        sortCategoryUikit : function (){
+            this.uikit = !this.uikit ? true : false ; 
+        },
+        sortCategoryIllustrator : function (){
+            this.illustrator = !this.illustrator ? true : false ; 
+        },  
+        sortCategoryReload : function (){
+            this.wordpress = true ; 
+            this.vuejs = true ; 
+            this.htmlcss = true ; 
+            this.uikit = true ; 
+            this.illustrator = true ; 
+        },
     } //methodsの締め
 });// Vueの締め

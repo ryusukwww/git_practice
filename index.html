@@ -21,10 +21,10 @@
                     </div>
                     <div class="uk-navbar-right">
                         <ul class="uk-navbar-nav uk-margin-right">
-                            <li><a v-on:click="showContents">PROFILE</a></li>
-                            <li><a v-on:click="showContents">WORK</a></li>
-                            <li><a v-on:click="showContents">PORTFOLIO</a></li>
-                            <li><a v-on:click="showContents">LOG</a></li>
+                            <li><a @click="showContents">PROFILE</a></li>
+                            <li><a @click="showContents">WORK</a></li>
+                            <li><a @click="showContents">PORTFOLIO</a></li>
+                            <li><a @click="showContents">LOG</a></li>
                             <li><a href="https://github.com/ryusukwww/git_practice">GITHUB</a></li>
                         </ul>
                     </div>
@@ -49,10 +49,10 @@
                 <div class="uk-offcanvas-bar">
                     <ul class="uk-nav uk-nav-default">
                         <li class="uk-nav-header">MENU</li>
-                        <li><a v-on:click="showContents"><span class="uk-margin-small-right"></span>PROFILE</a></li>
-                        <li><a v-on:click="showContents"><span class="uk-margin-small-right"></span>WORK</a></li>
-                        <li><a v-on:click="showContents"><span class="uk-margin-small-right"></span>PORTFOLIO</a></li>
-                        <li><a v-on:click="showContents"><span class="uk-margin-small-right"></span>LOG</a></li>
+                        <li><a @click="showContents"><span class="uk-margin-small-right"></span>PROFILE</a></li>
+                        <li><a @click="showContents"><span class="uk-margin-small-right"></span>WORK</a></li>
+                        <li><a @click="showContents"><span class="uk-margin-small-right"></span>PORTFOLIO</a></li>
+                        <li><a @click="showContents"><span class="uk-margin-small-right"></span>LOG</a></li>
                         <li><a href="https://github.com/ryusukwww/git_practice">GITHUB</a></li>
                     </ul>
             
@@ -99,7 +99,8 @@
             <transition>
             <div v-if="showArea3" class="uk-container uk-container-large uk-margin">
                 <h2 class="uk-heading-small">PORTFOLIO</h2>
-                    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                <button class="uk-margin-small-right uk-margin-samll-bottom uk-label uk-button" @click="sortCategoryReload">ALL</button><button class="uk-margin-small-right uk-margin-samll-bottom uk-label uk-button" @click ="sortCategoryWordpress">WODRPRESS</button><button class="uk-margin-small-right uk-margin-samll-bottom uk-label uk-button" @click ="sortCategoryVuejs">vue.js</button><button class="uk-margin-small-right uk-margin-samll-bottom uk-label uk-button" @click ="sortCategoryHtmlcss">HTML/CSS</button><button class="uk-margin-small-right uk-margin-samll-bottom uk-label uk-button" @click ="sortCategoryUikit">UIKIT</button><button class="uk-margin-small-right uk-margin-samll-bottom uk-label uk-button" @click ="sortCategoryIllustrator">Illustrator</button>
+                    <div v-if="wordpress && illustrator" class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
                         <div class="uk-card-media-left uk-cover-container">
                             <img src="images/light.jpg" alt="" uk-cover>
                             <canvas width="600" height="400"></canvas>
@@ -115,7 +116,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                    <div v-if="vuejs && uikit" class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
                         <div class="uk-card-media-left uk-cover-container">
                             <img src="images/narajikan.png" alt="" uk-cover>
                             <canvas width="600" height="400"></canvas>
@@ -125,13 +126,13 @@
                                 <h3 class="uk-card-title">#ならじかん</h3>
                                     <span class="uk-label">WORDPRESS ★★★★☆</span>
                                     <span class="uk-label">HTML/CSS ★★★☆☆</span>
-                                    <span class="uk-label">ILLUSTRATOR ★★★☆☆</span>
+                                    <span class="uk-label">Illustrator ★★★☆☆</span>
                                 <p>新型コロナウイルス禍でもファン、スークホルダーとコミュニケーションを行う事を目的にWeb企画を立案。奈良の企業様と共に、コロナ禍でもオンラインで体験できるコンテンツをコーティングいたしました。</p>
                                 <a href="http://naraclub.jp/homegame/narajikan-project/" class="uk-button uk-button-text"></a>
                             </div>
                         </div>
                     </div>
-                    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                    <div v-if="vuejs && uikit" class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
                         <div class="uk-card-media-left uk-cover-container">
                             <img src="images/ngo.jpeg" alt="" uk-cover>
                             <canvas width="600" height="400"></canvas>
@@ -141,7 +142,7 @@
                                 <h3 class="uk-card-title">N.GO</h3>
                                     <span class="uk-label">WORDPRESS ★★★★☆</span>
                                     <span class="uk-label">HTML/CSS ★★★☆☆</span>
-                                    <span class="uk-label">ILLUSTRATOR ★★★☆☆</span>
+                                    <span class="uk-label">Illustrator ★★★☆☆</span>
                                 <p>5G時代の全く新しい観戦体験アプリケーション「N.GO」の特設サイトです。</p>
                                 <a href="http://naraclub.jp/homegame/n-go" class="uk-button uk-button-text"></a>
                             </div>
