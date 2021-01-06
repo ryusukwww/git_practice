@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Title</title>
+        <title>NAKAMURA RYUSUKE</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--animateCss-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
+        <!--UIKIT-->
         <link rel="stylesheet" href="css/uikit.min.css" />
         <link rel="stylesheet" href="css/main.css" />
+        <!--オリジナルJSファイル-->
         <script src="js/uikit.min.js"></script>
         <script src="js/uikit-icons.min.js"></script>
     </head>
@@ -25,7 +29,7 @@
                             <li><a @click="showContents">WORK</a></li>
                             <li><a @click="showContents">PORTFOLIO</a></li>
                             <li><a @click="showContents">LOG</a></li>
-                            <li><a href="https://github.com/ryusukwww/git_practice">GITHUB</a></li>
+                            <li><a href="https://github.com/ryusukwww/git_practice" target="_blank" rel="noopener noreferrer">GITHUB</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -53,53 +57,82 @@
                         <li><a @click="showContents"><span class="uk-margin-small-right"></span>WORK</a></li>
                         <li><a @click="showContents"><span class="uk-margin-small-right"></span>PORTFOLIO</a></li>
                         <li><a @click="showContents"><span class="uk-margin-small-right"></span>LOG</a></li>
-                        <li><a href="https://github.com/ryusukwww/git_practice">GITHUB</a></li>
+                        <li><a href="https://github.com/ryusukwww/git_practice" target="_blank" rel="noopener noreferrer">GITHUB</a></li>
                     </ul>
             
                 </div>
             </div>
 
+            <!--showArea : TOP-->
+            <transition>
+                <div v-if="showArea" class="uk-container uk-container-expand">
+                    <div v-if="showArea" class="uk-height-large uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light" data-src="images/back-ground.png" uk-img>
+                            <img class="animated fadeInUp" v-if="show" data-src="images/title.png" width="400" alt="" uk-img>
+                    </div>
+                </div>
+            </transition>
+
             <!--showArea1 : PROFILE-->
-            <div class="uk-container uk-container-expand">
-                <transition>
-                    <div v-if="showArea" class="uk-height-large uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light" data-src="images/light.jpg" uk-img>
-                        <h1>NAKAMURA RYUSUKE</h1>
-                      </div>
-                </transition>
-            </div> 
+            <transition>
+                    <div v-if="showArea1" class="uk-height-large uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light" data-src="images/back-ground.png" uk-img >
+                        <div class="uk-margin-large animated fadeInUp">
+                            <img class="uk-border-circle" data-src="images/pofile.jpg" width="200" height="200" alt="" uk-img>
+                            <h1 class="uk-text-center">中村颯介</h1>
+                            <p class="uk-text-center">ああああ</p>
+                        </div>
+                    </div>
+            </transition>
             
             <!--showArea2 : WORK-->
             <transition>
-            <div v-if="showArea2" class="uk-container uk-container-large uk-margin">
-                <h1 class="uk-heading-small">WORK</h1>
-                <ul uk-accordion="multiple: true">
-                    <li class="uk-open">
-                        <a class="uk-accordion-title" href="#">Webデザイナー</a>
-                        <div class="uk-accordion-content">
-                            <p>Webデザイナーとしての経験をここに書く</p>
+                <div v-if="showArea2" class="uk-container uk-container-large uk-margin">
+                    <div class="uk-text-center">
+                        <img data-src="images/work.png" width="200" height="200" alt="" uk-img>
+                        <p>職務経歴</p>
+                    </div>
+                        <div v-if="vuejs && uikit" class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                            <div class="uk-card-media-left uk-cover-container">
+                                <img src="images/naraclub.jpeg" alt="" uk-cover>
+                                <canvas width="600" height="400"></canvas>
+                            </div>
+                            <div>
+                                <div class="uk-card-body">
+                                    <h3 class="uk-card-title">株式会社 奈良クラブ</h3>
+                                    <p>勤続年数 : 2019年12月 - 現在</p>
+                                    <p>所属部署 : Web企画・制作</p>
+                                    <p>業務内容 : Web企画、デザイン、コーディング</p>
+                                    <p>株式会社奈良クラブ Web企画・Webデザイン・コーダーとして従事。WordPressを主軸とし、新型コロナウイルス禍にオンラインで体験できる企画の立案からデザイン・コーディングなどを行いました。</p>
+                                    <a href="http://naraclub.jp/" class="uk-button uk-button-text" target="_blank" rel="noopener noreferrer"></a>
+                                </div>
+                            </div>
                         </div>
-                    </li>
-                    <li>
-                        <a class="uk-accordion-title" href="#">Web企画</a>
-                        <div class="uk-accordion-content">
-                            <p>ならじかんの企画、コーディング経験をここに書く</p>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="uk-accordion-title" href="#">WordPressテーマ開発</a>
-                        <div class="uk-accordion-content">
-                            <p>WordPressテーマをUIKITで作成した記録をここに書く</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                        <div v-if="vuejs && uikit" class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                            <div class="uk-card-media-left uk-cover-container">
+                                <img src="images/toieelab.jpeg" alt="" uk-cover>
+                                <canvas width="600" height="400"></canvas>
+                            </div>
+                            <div>
+                                <div class="uk-card-body" >
+                                    <h3 class="uk-card-title">北摂情報学研究所</h3>
+                                    <p>勤続年数 : 2015年12月 - 2019年8月</p>
+                                    <p>所属部署 : プロジェクトマネジャー、Webデザイン、Webコーディング</p>
+                                    <p>業務内容 : マネジメント、Webデザイン、コーディング</p>
+                                    <p>IT支援及びITのオンライン学習体験サービスの提供を行う。プロジェクトマネジャーとしてユーザーのKPI設計と評価システム作成、現場の進捗管理を行いながら専用システムの構築・運用も行う。</p>
+                                    <a href="https://toiee.jp/" class="uk-button uk-button-text" target="_blank" rel="noopener noreferrer"></a>
+                                </div>
+                            </div>
+                        </div>      
+                </div>
             </transition>
         
             <!--showArea3 : PORTFOLIO-->
             <transition>
             <div v-if="showArea3" class="uk-container uk-container-large uk-margin">
-                <h2 class="uk-heading-small">PORTFOLIO</h2>
-                <button class="uk-margin-small-right uk-margin-samll-bottom uk-label uk-button" @click="sortCategoryReload">ALL</button><button class="uk-margin-small-right uk-margin-samll-bottom uk-label uk-button" @click ="sortCategoryWordpress">WODRPRESS</button><button class="uk-margin-small-right uk-margin-samll-bottom uk-label uk-button" @click ="sortCategoryVuejs">vue.js</button><button class="uk-margin-small-right uk-margin-samll-bottom uk-label uk-button" @click ="sortCategoryHtmlcss">HTML/CSS</button><button class="uk-margin-small-right uk-margin-samll-bottom uk-label uk-button" @click ="sortCategoryUikit">UIKIT</button><button class="uk-margin-small-right uk-margin-samll-bottom uk-label uk-button" @click ="sortCategoryIllustrator">Illustrator</button>
+                <div class="uk-text-center">
+                    <img data-src="images/portfolio.png" width="200" height="200" alt="" uk-img>
+                    <p>ポートフォリオ</p>
+                    <button class="uk-margin-small-right uk-margin-samll-bottom uk-label uk-button uk-sort-label" :class="[ all === true ? 'uk-sort-label' : 'uk-sort-click']" @click="sortCategoryReload">ALL</button><button class="uk-margin-small-right uk-margin-samll-bottom uk-label uk-button" :class="[ wordpress === true ? 'uk-sort-label' : 'uk-sort-click']" @click ="sortCategoryWordpress">WODRPRESS</button><button class="uk-margin-small-right uk-margin-samll-bottom uk-label uk-button" :class="[ vuejs === true ? 'uk-sort-label' : 'uk-sort-click']"  @click ="sortCategoryVuejs">vue.js</button><button class="uk-margin-small-right uk-margin-samll-bottom uk-label uk-button" :class="[ htmlcss === true ? 'uk-sort-label' : 'uk-sort-click']" @click ="sortCategoryHtmlcss">HTML/CSS</button><button class="uk-margin-small-right uk-margin-samll-bottom uk-label uk-button" :class="[ uikit === true ? 'uk-sort-label' : 'uk-sort-click']" @click ="sortCategoryUikit">UIKIT</button><button class="uk-margin-small-right uk-margin-samll-bottom uk-label uk-button" :class="[ illustrator === true ? 'uk-sort-label' : 'uk-sort-click']"  @click ="sortCategoryIllustrator">Illustrator</button>
+                </div>
                     <div v-if="wordpress && illustrator" class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
                         <div class="uk-card-media-left uk-cover-container">
                             <img src="images/light.jpg" alt="" uk-cover>
@@ -107,12 +140,12 @@
                         </div>
                         <div>
                             <div class="uk-card-body">
-                                <h3 class="uk-card-title">ポートフォリオ</h3>
+                                <h3 class="uk-card-title">ポートフォリオサイト</h3>
                                     <span class="uk-label">VUE.JS ★★☆☆☆</span>
                                     <span class="uk-label">UIKIT ★★★★☆</span>
                                     <span class="uk-label">HTML/CSS ★★★☆☆</span>
                                 <p>JavascriptとVue.jsの勉強のためにポートフォリオサイトを作成しました。Vue.jsの基本文法を学ぶためにVUEインスタンス、ディレクティブを活用して作成しました。また、バージョン管理をGITを活用して行いました。</p>
-                                <a href="http://naraclub.jp/homegame/narajikan-project/" class="uk-button uk-button-text"></a>
+                                <a @click="reload" class="uk-button uk-button-text"></a>
                             </div>
                         </div>
                     </div>
@@ -128,7 +161,7 @@
                                     <span class="uk-label">HTML/CSS ★★★☆☆</span>
                                     <span class="uk-label">Illustrator ★★★☆☆</span>
                                 <p>新型コロナウイルス禍でもファン、スークホルダーとコミュニケーションを行う事を目的にWeb企画を立案。奈良の企業様と共に、コロナ禍でもオンラインで体験できるコンテンツをコーティングいたしました。</p>
-                                <a href="http://naraclub.jp/homegame/narajikan-project/" class="uk-button uk-button-text"></a>
+                                <a href="http://naraclub.jp/homegame/narajikan-project/" class="uk-button uk-button-text" target="_blank" rel="noopener noreferrer"></a>
                             </div>
                         </div>
                     </div>
@@ -144,7 +177,7 @@
                                     <span class="uk-label">HTML/CSS ★★★☆☆</span>
                                     <span class="uk-label">Illustrator ★★★☆☆</span>
                                 <p>5G時代の全く新しい観戦体験アプリケーション「N.GO」の特設サイトです。</p>
-                                <a href="http://naraclub.jp/homegame/n-go" class="uk-button uk-button-text"></a>
+                                <a href="http://naraclub.jp/homegame/n-go" class="uk-button uk-button-text" target="_blank" rel="noopener noreferrer"></a>
                             </div>
                         </div>
                     </div>                
@@ -155,7 +188,10 @@
             <div v-if="showArea4" class="uk-container uk-container-large uk-margin">
                 <form>
                     <fieldset class="uk-fieldset">
-                        <h2 class="uk-heading-small">LOG</h2>
+                        <div class="uk-text-center">
+                            <img data-src="images/log.png" width="200" height="200" alt="" uk-img>
+                            <p>記録</p>
+                        </div>
                         <div class="uk-margin">
                             <input id="logHeader" class="uk-input" type="text" placeholder="タイトルを入力" v-model="addLogTitle">
                         </div>
@@ -182,14 +218,37 @@
         <style>
 			/* 現れている最中は、0.5秒 */
 			.v-enter-active {
-				transition: 0.4s;
+				transition: 1s;
 			}
             /* 消えている最中は、0.1秒 */
             .v-leave-active {
                 transition: 0.1s;
             }
-			/* 現れる前の状態と、消えたときの状態は、透明度0で、下へ20移動*/
+            /* 現れる前の状態と、消えたときの状態は、透明度0で、下へ20移動*/
 			.v-enter, .v-leave-to {
+				opacity: 0;
+				transform: translateY(20px)
+			}
+            /* 現れている最中は、0.5秒 */
+			.text-enter-active {
+				transition: 1s;
+			}
+            /* 消えている最中は、0.1秒 */
+            .text-leave-active {
+                transition: 0.1s;
+            }
+            /* 現れる前の状態と、消えたときの状態は、透明度0で、下へ20移動*/
+			.text-enter, .text-leave-to {
+				opacity: 0;
+				transform: translateX(-20px)
+			}
+			.fade-enter-active{
+                transition: 10s;
+            }  
+            .fade-leave-active {
+				transition: opacity .5s;
+            }
+            .fade-enter, .fade-leave-to {
 				opacity: 0;
 				transform: translateY(20px)
 			}
