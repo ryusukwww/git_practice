@@ -30,3 +30,25 @@
 .uk-height-large {
     height: 800px;
 }
+
+.uk-heading-small{
+    font-size: 1.875rem;
+}
+
+.uk-sort-label{
+    background: #fff;
+    color: #1e87f0;
+    border: solid 1px #1e87f0;
+}
+
+.uk-sort-label:hover{
+    background: #1e87f0;
+    color: #fff;
+    border: solid 1px #1e87f0;
+}
+
+.uk-sort-click{
+    background: #1e87f0;
+    color: #fff;
+    border: solid 1px #1e87f0;
+}
