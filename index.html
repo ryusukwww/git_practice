@@ -20,7 +20,7 @@
                 <nav class="uk-navbar-container uk-navbar uk-visible@m" >
                     <div class="uk-navbar-left">
                         <ul class="uk-navbar-nav uk-margin-right">
-                            <li><a href="file:///Users/nakamuraryusuke/Documents/dev/portfolio/git_practice/index.html">NAKAMURA RYUSUKE</a></li>
+                            <li><a @click="reload">NAKAMURA RYUSUKE</a></li>
                         </ul>
                     </div>
                     <div class="uk-navbar-right">
@@ -39,7 +39,7 @@
                 <nav class="uk-navbar-container uk-navbar uk-hidden@m" >
                     <div class="uk-navbar-left">
                         <ul class="uk-navbar-nav uk-margin-right">
-                            <li><a href="file:///Users/nakamuraryusuke/Documents/dev/portfolio/git_practice/index.html">NAKAMURA RYUSUKE</a></li>
+                            <li><a @click="reload">NAKAMURA RYUSUKE</a></li>
                         </ul>
                     </div>
                     <div class="uk-navbar-right">
@@ -66,7 +66,7 @@
             <!--showArea : TOP-->
             <transition>
                 <div v-if="showArea" class="uk-container uk-container-expand">
-                    <div v-if="showArea" class="uk-height-large uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light" data-src="images/back-ground.png" uk-img>
+                    <div v-if="showArea" uk-height-viewport="expand: true" class="uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light" data-src="images/back-ground.png" uk-img>
                             <img class="animated fadeInUp" v-if="show" data-src="images/title.png" width="400" alt="" uk-img>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
 
             <!--showArea1 : PROFILE-->
             <transition>
-                    <div v-if="showArea1" class="uk-height-large uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light" data-src="images/back-ground.png" uk-img >
+                    <div v-if="showArea1" uk-height-viewport="expand: true" class="uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light" data-src="images/back-ground.png" uk-img >
                         <div class="uk-margin-large animated fadeInUp">
                             <img class="uk-border-circle" data-src="images/pofile.jpg" width="200" height="200" alt="" uk-img>
                             <h1 class="uk-text-center">中村颯介</h1>
