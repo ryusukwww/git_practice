@@ -65,22 +65,27 @@
 
             <!--showArea : TOP-->
             <transition>
-                <div v-if="showArea" class="uk-container uk-container-expand">
+                <div class="uk-container uk-container-expand">
                     <div v-if="showArea" uk-height-viewport="expand: true" class="uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light" data-src="images/back-ground.png" uk-img>
-                            <img class="animated fadeInUp" v-if="show" data-src="images/title.png" width="400" alt="" uk-img>
+                        <div class="animated fadeInUp uk-text-center">
+                            <p><img data-src="images/title.png" width="300" alt="" uk-img></p>
+                            <p>WELCOME TO MY PORTFOLIO!!</p>
+                        </div>
                     </div>
                 </div>
             </transition>
 
             <!--showArea1 : PROFILE-->
             <transition>
-                    <div v-if="showArea1" uk-height-viewport="expand: true" class="uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light" data-src="images/back-ground.png" uk-img >
-                        <div class="uk-margin-large animated fadeInUp">
-                            <img class="uk-border-circle" data-src="images/pofile.jpg" width="200" height="200" alt="" uk-img>
-                            <h1 class="uk-text-center">中村颯介</h1>
-                            <p class="uk-text-center">ああああ</p>
-                        </div>
+                <div v-if="showArea1" class="uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light" uk-height-viewport="expand: true" data-src="images/back-ground.png" uk-img>
+                    <div class="animated fadeInUp uk-text-center uk-margin-large">
+                            <p><img class="uk-border-circle" data-src="images/pofile.jpg" width="150" uk-img></p>
+                            <p>はじめまして！中村颯介と申します。</p> 
+                            <p>WordPressを主軸に、企画・デザイン・コーディングを行なっています。</p> 
+                            <p>現在はモダンなエンジニアリングのため、javascriptを学んでいます</p> 
+                            <span class="uk-label uk-margin">WORDPRESS 3年</span><span class="uk-label">HTML/CSS 3年</span><span class="uk-label">UIKIT 1年</span><span class="uk-label">Javascript 1ヶ月</span><span class="uk-label">vue.js 1ヶ月</span>
                     </div>
+                </div>
             </transition>
             
             <!--showArea2 : WORK-->
@@ -190,30 +195,40 @@
                     <fieldset class="uk-fieldset">
                         <div class="uk-text-center">
                             <img data-src="images/log.png" width="200" height="200" alt="" uk-img>
-                            <p>記録</p>
+                            <p>学習の記録</p>
                         </div>
+                    <!--ログ追加セクション-->
+                        <template v-for="log in logs">
+                            <h3 class="uk-card-title">{{log.title}}</h3>
+                            <p>{{log.content}}</p>
+                            <p v-bind="showDate"> 記録日 : {{today}}</p>
+                            <hr>
+                        </template>
+                        <div v-for="getlog in sortedlogsByDate" v-bind:key="getlog.fields.today.stringValue">
+                            <h3 class="uk-card-title"> {{getlog.fields.addLogTitle.stringValue}}</h3>
+                            <p> {{getlog.fields.addLogContent.stringValue}}</p>
+                            <p> 記録日 : {{getlog.fields.today.stringValue}}</p>
+                            <hr>
+                        </div>  
+                    <!--ログ入力フォーム-->
+                        <h3>記録する</h3>
                         <div class="uk-margin">
                             <input id="logHeader" class="uk-input" type="text" placeholder="タイトルを入力" v-model="addLogTitle">
                         </div>
                         <div class="uk-margin">
-                            <textarea id="logText" class="uk-textarea" rows="5" placeholder="テキストを入れてください" v-model="addLogContent"></textarea>
+                            <textarea id="logText" class="uk-textarea" rows="5" placeholder="学んだことを入力しましょう。" v-model="addLogContent"></textarea>
                         </div>
                     </fieldset>
                 </form>
                 <div class="uk-margin">
-                    <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" @click="addLog">LOGを追加する</button>
+                    <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" @click="createComment">記録する</button>
                 </div>
-                <!--ログ追加セクション-->
-                <template v-for="log in logs">
-                    <h2>{{log.title}}</h2>
-                    <p>{{log.content}}</p>
-                    <p>AUTOR : NAKAMURA RYUSUKE</p>
-                    <hr>
-            </template>
             </div>
+            <!--axios RESTAPI通信でgetしたデータを表示-->
             </transition>
         </div>            
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="main.js"></script>
         <style>
 			/* 現れている最中は、0.5秒 */
